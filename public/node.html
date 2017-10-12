@@ -1,0 +1,17 @@
+<html>
+<title>sample</title>
+
+<body>
+    <form action="https://us-central1-ssrahul96-1002.cloudfunctions.net/addnumbers" method="post">
+        First Name: <input type="text" name="first_name"> <br> Last Name: <input type="text" name="last_name"><br> Number 1 : <input type="number" name="num1"> <br> Number 2 : <input type="number" name="num2"> <br>
+
+        <input type="submit" value="Submit">
+    </form>
+	
+	<form ref='uploadForm' id='uploadForm' action='https://us-central1-ssrahul96-1002.cloudfunctions.net/fileupload' method='post' encType="multipart/form-data">
+        <input type="file" name="sampleFile" />
+        <input type='submit' value='Upload!' />
+    </form>
+</body>
+
+</html>

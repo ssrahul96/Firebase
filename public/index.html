@@ -1,65 +1,203 @@
-<!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
-
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/4.5.0/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/4.5.0/firebase-auth.js"></script>
-    <script defer src="/__/firebase/4.5.0/firebase-database.js"></script>
-    <script defer src="/__/firebase/4.5.0/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/4.5.0/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
-
+    <title>Firebase upload</title>
     <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+        body {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #eee;
         }
-      });
+        
+        div.ex1 {
+            width: 250px;
+            margin: auto;
+        }
+        
+        p.cls_url {
+            border-style: solid;
+            border-width: 1px;
+            color: navy;
+        }
+        
+        .upload {
+            display: flex;
+            min-height: 50vh;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        #uploader {
+            -webkit-appearance: none;
+            width: 50%;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="ex1">
+            <h4>
+                <p id="uname"></p>
+            </h4>
+            <label for="txtemail" class="sr-only">Email address</label>
+            <input type="email" id="txtemail" class="form-control" placeholder="Email address" required autofocus>
+            <label for="txtpassword" class="sr-only">Password</label>
+            <input type="password" id="txtpassword" class="form-control" placeholder="Password" required>
+            <button id="btnlogin" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <button id="btnsignup" class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+            <button id="btnlogout" class="btn btn-lg btn-primary btn-block" type="submit">Sign out</button>
+        </div>
+    </div>
+    <!-- /container -->
+
+    <div class="upload">
+        <progress value="0" max="100" id="uploader">0</progress>
+        <input type="file" title="" value="upload" id="fileButton" class="btn btn-default btn-file" />
+        <p class="cls_url" id="url"></p>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js "></script>
+    <script>
+        function show() {
+            var d = new Date();
+            var monthNames = ["January ", "February ", "March ", "April ", "May ", "June ",
+                "July ", "August ", "September ", "October ", "November ", "December "
+            ];
+            alert(d.getFullYear() + '  ' + monthNames[d.getMonth()] + '  ' + d.getDate());
+        }
+
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCVKoseJBXqkh3Tc3XqhdgIi7jxpPsJdb8",
+            authDomain: "improve-your-english.firebaseapp.com",
+            databaseURL: "https://improve-your-english.firebaseio.com",
+            projectId: "improve-your-english",
+            storageBucket: "improve-your-english.appspot.com",
+            messagingSenderId: "1039736031717"
+        };
+        firebase.initializeApp(config);
+
+        var uploader = document.getElementById('uploader');;
+        var fileButton = document.getElementById('fileButton');
+
+        function getUrl(directory) {
+
+            var storageRef = firebase.storage().ref();
+            var forestRef = storageRef.child(directory);
+            forestRef.getMetadata().then(function(metadata) {
+                var temp = "<a target='_blank' href='" + metadata.downloadURLs + "'>Click here for link </a>";
+                console.log(temp);
+                document.getElementById("url").innerHTML = temp;
+            }).catch(function(error) {
+                alert(error);
+            });
+        }
+
+
+        fileButton.addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            var d = new Date();
+            var monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            if (document.getElementById('uname').innerHTML == "") {
+                alert("Login to upload ");
+                fileButton.value = '';
+                return;
+            }
+            var directory = 'IYE/' + d.getFullYear() + '/' + monthNames[d.getMonth()] + '/' + file.name;
+            console.log(directory);
+            var storeageRef = firebase.storage().ref(directory);
+
+            var task = storeageRef.put(file);
+
+            task.on('state_changed',
+                function progress(snapshot) {
+                    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    uploader.value = progress
+                },
+                function error(err) {
+                    console.error(err);
+                },
+                function complete() {
+                    getUrl(directory);
+                    fileButton.value = '';
+                }
+            );
+        })
+
+        const txtemail = document.getElementById('txtemail');
+        const txtpassword = document.getElementById('txtpassword');
+        const btnlogin = document.getElementById('btnlogin');
+        const btnsignup = document.getElementById('btnsignup');
+        const btnlogout = document.getElementById('btnlogout');
+
+
+        btnlogin.addEventListener('click', e => {
+            const email = txtemail.value;
+            const pass = txtpassword.value;
+            const auth = firebase.auth();
+
+            const resp = auth.signInWithEmailAndPassword(email, pass);
+
+            resp
+                .then(user => {
+                    console.log(user);
+                })
+                .catch(e => {
+                    console.log(e.message);
+                    alert(e.message)
+                });
+        });
+
+        btnsignup.addEventListener('click', e => {
+            const email = txtemail.value;
+            const pass = txtpassword.value;
+            const auth = firebase.auth();
+
+            const resp = auth.createUserWithEmailAndPassword(email, pass)
+
+            resp
+                .then(user => console.log(user))
+                .catch(e => console.log(e.message));
+        });
+
+        btnlogout.addEventListener('click', e => {
+            firebase.auth().signOut();
+            alert("Signed Out ");
+        })
+
+        firebase.auth().onAuthStateChanged(user => {
+            btnsignup.classList.add('hide');
+            if (user) {
+                document.getElementById("uname").innerHTML = "logged in as " + user.email;
+                console.log(user);
+                btnlogout.classList.remove('hide');
+                btnlogin.classList.add('hide');
+                txtemail.classList.add('hide');
+                txtpassword.classList.add('hide');
+            } else {
+                console.log('not logged in');
+                btnlogout.classList.add('hide');
+                btnlogin.classList.remove('hide');
+                txtemail.classList.remove('hide');
+                txtpassword.classList.remove('hide');
+                document.getElementById("uname").innerHTML = " ";
+            }
+        })
     </script>
-  </body>
+
+</body>
+
 </html>
