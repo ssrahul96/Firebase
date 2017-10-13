@@ -18,3 +18,7 @@ exports.addnumbers = functions.https.onRequest((request, response) => {
     response.send("welcome : " + name + "<br>Father name : " + lname + "<br>Sum = " + num1 + num2);
 
 });
+
+exports.test = functions.https.onRequest((request, response) => {
+    console.log("test function");
+});
