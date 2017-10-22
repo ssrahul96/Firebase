@@ -28,7 +28,7 @@ exports.compute = functions.https.onRequest((request, response) => {
     console.log(val);
     for (var i = 0; i < val; i++) {
         //composeMessage(i);
-        response.write(i);
+        response.send(i);
     }
     response.end();
 
