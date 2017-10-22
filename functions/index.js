@@ -22,3 +22,17 @@ exports.addnumbers = functions.https.onRequest((request, response) => {
 exports.test = functions.https.onRequest((request, response) => {
     console.log("test function");
 });
+
+exports.compute = functions.https.onRequest((request, response) => {
+    var name = request.body.val;
+    for (var i = 0; i < number(val); i++) {
+        composeMessage(i);
+        response.write(i);
+    }
+    response.end();
+
+    function composeMessage(message) {
+        console.log("Loading message %d".green, message);
+    }
+
+});
