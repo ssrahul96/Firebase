@@ -25,6 +25,7 @@ exports.test = functions.https.onRequest((request, response) => {
 
 exports.compute = functions.https.onRequest((request, response) => {
     var name = request.body.val;
+    Console.log(name);
     for (var i = 0; i < number(name); i++) {
         composeMessage(i);
         response.write(i);
