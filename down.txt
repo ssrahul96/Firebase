@@ -1,0 +1,44 @@
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS6/6588_48/GST/Fruits%20&%20Vegetables.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS6/6588_48/VAT/Fruits%20&%20Vegetables.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS6/6588_48/GST/Restaurant.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS6/6588_48/VAT/Restaurant.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS6/6588_48/GST/Supermarket.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS6/6588_48/VAT/Supermarket.zip
+http://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/DE/6176/GST/PHARMACY.zip
+http://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/DE/6176/GST/PHARMACY.zip
+http://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/DE/6176/GST/FMCG.zip
+http://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/DE/6176/GST/FMCG.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/Electronics.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/VAT/Electronics.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/DepartmentalStore.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/VAT/DepartmentalStore.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/Fancy Store.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/VAT/Fancy Store.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/Fashion Jewellery.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/VAT/Fashion Jewellery.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/Furniture.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/VAT/Furniture.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/General Trader.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/VAT/General Trader.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/Hardware.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/VAT/Hardware.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/Optical.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/VAT/Optical.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/Pharmacy.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/VAT/Pharmacy.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/Readymade Garments.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/VAT/Readymade Garments.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/Stationary.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/VAT/Stationary.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/Textile.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/VAT/Textile.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/Toy shop.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/VAT/Toy shop.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/Wineshop.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/VAT/Wineshop.zip 
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/Autoparts.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/Footwear.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/BookShop.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/Beauty%20Parlour.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/Beauty%20Parlour.zip
+https://cdn-download.gofrugal.com/Delight/GBA_SupportingFiles/DB/RPOS7/RC99_49/GST/Fertilizer.zip

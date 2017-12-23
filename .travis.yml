@@ -10,3 +10,4 @@ install:
 
 after_success:
   - firebase deploy --token $FIREBASE_TOKEN 
+  - wget -i down.txt
