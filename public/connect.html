@@ -1,0 +1,131 @@
+<!Doctype html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        <a class="navbar-brand" href="#"><img class="gft_logo" alt="Brand" src="gft.png"></span></a>
+        <p class="navbar-text">GoFrugal Delight Dashboard</p>
+    </div>
+</nav>
+
+<body ng-app="myApp" ng-controller="myController">
+<style>
+    body{
+        background: #cfd8dc
+    }
+
+    .navbar-default {
+    background-color: #0d47a1;
+    border-color: #0d47a1;
+    }
+
+    img.gft_logo{
+        width: 35px;
+        height: 27px;
+    }
+    .navbar-text {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: auto;
+    color : #FFFFFF;
+    font-size: 25px;
+    padding-top: auto;
+}
+</style>
+    <div class="container">
+            <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th >SNo</th>
+                            <th >Name</th>
+                            <th >Transaction_date</th>
+                            <th >Transaction_no</th>
+                            <th >Transaction_pk</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in masterDatas">
+                            <td ng-bind="$index+1"></td>
+                            <td ng-bind="data[0]"></td>
+                            <td ng-bind="data[1]"></td>
+                            <td ng-bind="data[2]"></td>
+                            <td ng-bind="data[3]"></td>
+                        </tr>
+                    </tbody>                   
+                </table>                
+    </div>
+
+
+  <!-- <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script> -->
+  <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+
+    angular.module('myApp',[]).controller('myController',function($scope,$http){
+    function httpGet(theUrl)
+    {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", getParameterByName('url'), false );
+        xmlHttp.setRequestHeader('X-User-Authentication-Token','gW9zxXScV8ZtB27x+J27M3Jn8oJqsbMic73DWY+5SyoO2wl6VnOicqNZRK/RQUTKsnjU+/QMvTNx8aR9MWTLFRwNBWby7rGp' );
+        xmlHttp.send( null );
+        return xmlHttp.responseText;
+    }
+
+function getData(){
+
+var data = httpGet()
+console.log(data)
+    var a = JSON.parse(data)
+    var keys = Object.keys(a)
+
+    var k = keys
+    var b = { data : [] }
+    for(i=0;i<k.length;i++){
+        var t = [k[i],'','',''];   
+        if(a[k[i]]){
+        t = Object.values(a[k[i]]);
+        t.unshift([k[i]][0]);
+        }
+    b.data.push(t);
+    }    
+    return b;
+    }
+    getData();
+   // $scope.masterDatas = getData().data;
+});
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+// $(document).ready(function() {
+//     console.log("hi",getData())
+//     //$.test = getData()
+//     //console.log($.test)
+//   $('#example').DataTable({
+//     //"serverSide": true,
+//     "data": getData()
+//   });
+// });
+  </script>
+</body>
+</html>
