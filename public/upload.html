@@ -1,0 +1,167 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Firebase upload</title>
+    <style media="screen">
+        .upload {
+            display: flex;
+            min-height: 100vh;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        #uploader {
+            -webkit-appearance: none;
+            width: 50%;
+            margin-bottom: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="upload">
+        <progress value="0" max="100" id="uploader">0</progress>
+        <input type="file" value="upload" id="fileButton" />
+        <p id="url"></p>
+    </div>
+    <div class="container">
+        <input id="txtemail" class="form-control" type="email" placeholder="emailid" />
+        <input id="txtpassword" class="form-control" type="password" placeholder="password" /><br>
+
+        <button id="btnlogin" type="button" class="btn btn-primary">log in</button>
+        <button id="btnsignup" type="button" class="btn btn-success">Signup</button>
+        <button id="btnlogout" type="button" class="btn btn-info">log out</button>
+
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+    <script>
+        function show() {
+            var d = new Date();
+            var monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            alert(d.getFullYear() + '  ' + monthNames[d.getMonth()] + '  ' + d.getDate());
+        }
+
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCVKoseJBXqkh3Tc3XqhdgIi7jxpPsJdb8",
+            authDomain: "improve-your-english.firebaseapp.com",
+            databaseURL: "https://improve-your-english.firebaseio.com",
+            projectId: "improve-your-english",
+            storageBucket: "improve-your-english.appspot.com",
+            messagingSenderId: "1039736031717"
+        };
+        firebase.initializeApp(config);
+
+        var uploader = document.getElementById('uploader');;
+        var fileButton = document.getElementById('fileButton');
+
+        function getUrl(directory) {
+
+            var storageRef = firebase.storage().ref();
+            var forestRef = storageRef.child(directory);
+            forestRef.getMetadata().then(function(metadata) {
+                document.getElementById("url").innerHTML = metadata.downloadURLs;
+            }).catch(function(error) {
+                alert(error);
+            });
+        }
+
+
+        fileButton.addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            var d = new Date();
+            var monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+
+            var directory = 'IYE/' + d.getFullYear() + '/' + monthNames[d.getMonth()] + '/' + file.name;
+            console.log(directory);
+            var storeageRef = firebase.storage().ref(directory);
+
+            var task = storeageRef.put(file);
+
+            task.on('state_changed',
+                function progress(snapshot) {
+                    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    uploader.value = progress
+                },
+                function error(err) {
+                    console.error(err);
+                },
+                function complete() {
+                    getUrl(directory);
+                }
+            );
+        })
+
+        var fileButton = document.getElementById('fileButton');
+
+        const txtemail = document.getElementById('txtemail');
+        const txtpassword = document.getElementById('txtpassword');
+        const btnlogin = document.getElementById('btnlogin');
+        const btnsignup = document.getElementById('btnsignup');
+        const btnlogout = document.getElementById('btnlogout');
+
+
+        btnlogin.addEventListener('click', e => {
+            const email = txtemail.value;
+            const pass = txtpassword.value;
+            const auth = firebase.auth();
+
+            const resp = auth.signInWithEmailAndPassword(email, pass);
+
+            resp
+                .then(user => {
+                    console.log(user);
+                    alert(user.email)
+                })
+                .catch(e => {
+                    console.log(e.message);
+                    alert(e.message)
+                });
+        });
+
+        btnsignup.addEventListener('click', e => {
+            const email = txtemail.value;
+            const pass = txtpassword.value;
+            const auth = firebase.auth();
+
+            const resp = auth.createUserWithEmailAndPassword(email, pass)
+
+            resp
+                .then(user => console.log(user))
+                .catch(e => console.log(e.message));
+        });
+
+        btnlogout.addEventListener('click', e => {
+            firebase.auth().signOut();
+            alert("Signed Out");
+        })
+
+        firebase.auth().onAuthStateChanged(user => {
+            btnsignup.classList.add('hide');
+            if (user) {
+                console.log(user);
+                btnlogout.classList.remove('hide');
+                btnlogin.classList.add('hide');
+            } else {
+                console.log('not logged in');
+                btnlogout.classList.add('hide');
+                btnlogin.classList.remove('hide');
+            }
+        })
+    </script>
+
+</body>
+
+</html>
